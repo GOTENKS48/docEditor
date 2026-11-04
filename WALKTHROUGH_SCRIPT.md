@@ -66,3 +66,4 @@
   - Where I applied critical judgment: I rejected Prisma 7's experimental configuration changes in favor of stable Prisma 6; I rejected complex Socket.io setups that would jeopardize stability under tight time constraints; and I rejected external cloud storage APIs to ensure zero-dependency reviewer execution.
   - Every line of code was verified through automated tests, type checking, and hands-on multi-user testing."
 - **Closing:** "Thank you for reviewing Ajaia Docs!"
+

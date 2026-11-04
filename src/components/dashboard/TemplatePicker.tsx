@@ -166,3 +166,4 @@ export function TemplatePicker({ onOpenUpload }: TemplatePickerProps) {
     </div>
   );
 }
+

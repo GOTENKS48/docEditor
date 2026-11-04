@@ -116,3 +116,4 @@ To satisfy the file upload requirement with high product relevance, I built a tw
 2. **Inline Comments & Annotations**: Allow users to highlight text spans and attach comment threads with resolve states.
 3. **Full-Text SQLite FTS5 Search**: Implement virtual tables with SQLite Full-Text Search for sub-millisecond keyword highlighting across document contents.
 4. **Folder & Tag Organization**: Add organizational hierarchy for enterprise team workspaces.
+

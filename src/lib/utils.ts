@@ -43,3 +43,4 @@ export function getWordCount(text: string): { words: number; chars: number; read
   const readingTime = Math.ceil(words / 200); // 200 words per minute average reading speed
   return { words, chars, readingTime };
 }
+

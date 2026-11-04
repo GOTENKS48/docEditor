@@ -172,3 +172,4 @@ export function DocumentCard({ doc, onToggleStar, onDelete }: DocumentCardProps)
     </Link>
   );
 }
+

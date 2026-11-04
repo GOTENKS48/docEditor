@@ -124,3 +124,4 @@ To review sharing and permission enforcement without auth friction, use the **Us
 
 - **Video URL:** `https://www.loom.com/share/placeholder-ajaia-docs-walkthrough`  
   *(See `WALKTHROUGH_SCRIPT.md` for the exact 3–5 minute step-by-step video script)*
+

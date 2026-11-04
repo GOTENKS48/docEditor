@@ -96,3 +96,4 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
 export function useUser() {
   return useContext(UserContext);
 }
+

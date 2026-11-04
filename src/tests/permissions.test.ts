@@ -45,3 +45,4 @@ describe("Document Access & Sharing Permissions Logic", () => {
     expect(canManageSharing(mockDoc, "user_stranger")).toBe(false);
   });
 });
+

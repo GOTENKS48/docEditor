@@ -139,3 +139,4 @@ export function UserSwitcher({ compact = false }: UserSwitcherProps) {
     </div>
   );
 }
+

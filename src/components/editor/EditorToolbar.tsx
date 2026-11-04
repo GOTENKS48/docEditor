@@ -326,3 +326,4 @@ export function EditorToolbar({ editor, disabled = false }: EditorToolbarProps) 
     </div>
   );
 }
+

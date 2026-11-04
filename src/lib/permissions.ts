@@ -54,3 +54,4 @@ export function canManageSharing(
   const level = getDocumentAccessLevel(document, userId);
   return level === "OWNER";
 }
+
