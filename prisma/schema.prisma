@@ -1,0 +1,82 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  avatar    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  ownedDocuments   Document[]        @relation("UserOwnedDocuments")
+  sharedDocuments  DocumentShare[]
+  activityLogs     ActivityLog[]
+}
+
+model Document {
+  id          String   @id @default(cuid())
+  title       String   @default("Untitled Document")
+  content     String   @default("") // HTML string for rich text
+  ownerId     String
+  owner       User     @relation("UserOwnedDocuments", fields: [ownerId], references: [id], onDelete: Cascade)
+  isStarred   Boolean  @default(false)
+  isArchived  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  shares      DocumentShare[]
+  attachments Attachment[]
+  versions    DocumentVersion[]
+  activities  ActivityLog[]
+}
+
+model DocumentShare {
+  id         String   @id @default(cuid())
+  documentId String
+  document   Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role       String   @default("VIEWER") // "EDITOR" or "VIEWER"
+  createdAt  DateTime @default(now())
+
+  @@unique([documentId, userId])
+}
+
+model Attachment {
+  id          String   @id @default(cuid())
+  documentId  String
+  document    Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  filename    String
+  fileSize    Int
+  mimeType    String
+  fileData    String   // Base64 data URI or public path
+  createdAt   DateTime @default(now())
+}
+
+model DocumentVersion {
+  id         String   @id @default(cuid())
+  documentId String
+  document   Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  title      String
+  content    String
+  savedBy    String   // User name or email
+  createdAt  DateTime @default(now())
+}
+
+model ActivityLog {
+  id         String   @id @default(cuid())
+  documentId String
+  document   Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  action     String   // e.g. "created", "edited", "shared", "imported"
+  details    String?
+  createdAt  DateTime @default(now())
+}

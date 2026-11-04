@@ -3,25 +3,188 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #fbfbfd;
+  --foreground: #09090b;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Custom scrollbars for clean minimal aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+/* Tiptap Editor Typography */
+.ProseMirror {
+  outline: none;
+  min-height: 480px;
+}
+
+.ProseMirror p {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+  line-height: 1.75;
+  color: #27272a;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #a1a1aa;
+  pointer-events: none;
+  height: 0;
+}
+
+.ProseMirror h1 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: #09090b;
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: #18181b;
+  margin-top: 1.4em;
+  margin-bottom: 0.4em;
+}
+
+.ProseMirror h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #27272a;
+  margin-top: 1.2em;
+  margin-bottom: 0.3em;
+}
+
+.ProseMirror ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+
+.ProseMirror ol {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+
+.ProseMirror li {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  line-height: 1.65;
+  color: #27272a;
+}
+
+.ProseMirror blockquote {
+  border-left: 3px solid #71717a;
+  padding-left: 1rem;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+  font-style: italic;
+  color: #52525b;
+}
+
+.ProseMirror code {
+  background-color: #f4f4f5;
+  color: #09090b;
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  font-family: var(--font-geist-mono), monospace;
+}
+
+.ProseMirror pre {
+  background: #18181b;
+  color: #f4f4f5;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-family: var(--font-geist-mono), monospace;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  overflow-x: auto;
+}
+
+.ProseMirror pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+.ProseMirror hr {
+  border: none;
+  border-top: 1px solid #e4e4e7;
+  margin: 2em 0;
+}
+
+.ProseMirror a {
+  color: #2563eb;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Task lists */
+ul[data-type="taskList"] {
+  list-style: none;
+  padding: 0;
+}
+
+ul[data-type="taskList"] li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+ul[data-type="taskList"] li > label {
+  flex: 0 0 auto;
+  margin-right: 0.35rem;
+  user-select: none;
+  cursor: pointer;
+}
+
+ul[data-type="taskList"] li > div {
+  flex: 1 1 auto;
+}
+
+/* Print styles for export */
+@media print {
+  body {
+    background: white !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-page {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
   }
 }

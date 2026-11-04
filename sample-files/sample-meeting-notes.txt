@@ -1,0 +1,15 @@
+Weekly Product & Design Alignment
+
+Attendees: Alex Rivera, Sarah Chen, Marcus Vance, Elena Rostova
+Date: November 4, 2026
+
+Discussion Summary:
+Today we reviewed the initial user feedback on our internal documentation suite. The team expressed strong enthusiasm for the minimalist typography and instant auto-saving capabilities.
+
+Key Decisions:
+- Finalize the document sharing permissions model for phase 1
+- Prioritize .md and .docx drag-and-drop file import
+- Prepare the architecture and AI workflow documentation for review
+
+Next Steps:
+Sarah will coordinate the technical RFC for real-time CRDT sync in phase 2. Marcus will complete the component token updates for the design system.
