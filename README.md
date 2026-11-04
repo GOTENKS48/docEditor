@@ -151,9 +151,6 @@ doceditor/
 │       ├── permissions.test.ts   # Role-based access control tests
 │       ├── file-parsers.test.ts  # File conversion & parser tests
 │       └── document-flow.test.ts # Live end-to-end API workflow tests
-├── ARCHITECTURE.md               # Prioritization, design choices & tradeoffs
-├── AI_WORKFLOW.md                # AI-native workflow & tooling reflection
-├── SUBMISSION.md                 # Complete submission inventory & test guide
 └── README.md
 ```
 
